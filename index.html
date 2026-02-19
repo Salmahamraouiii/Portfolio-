@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -508,7 +509,7 @@
       color: #2a2438;
     }
 
-    /* gallery grid – light */
+    /* gallery grid – light, now without description, images fit */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -523,36 +524,29 @@
       border: 1px solid rgba(200, 170, 255, 0.3);
       transition: 0.25s;
       box-shadow: 0 15px 25px -12px rgba(139, 110, 201, 0.15);
+      padding: 0;                /* remove any default padding */
+      aspect-ratio: 1 / 1;       /* make all squares */
     }
     .gallery-item:hover {
       transform: scale(1.02);
       border-color: #c8acff;
       box-shadow: 0 20px 30px -10px rgba(139, 110, 201, 0.2);
     }
-    .gallery-placeholder {
-      background: rgba(200, 170, 255, 0.15);
-      aspect-ratio: 1 / 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #8b6ec9;
-      font-size: 3.5rem;
-      border-bottom: 1px dashed #b9a2e0;
+    .gallery-image {
+      width: 100%;
+      height: 100%;
     }
-    .gallery-description {
-      padding: 1.2rem;
-      color: #2a2438;
-    }
-    .gallery-description strong {
-      font-size: 1.1rem;
+    .gallery-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;         /* fill square, might crop but looks uniform */
       display: block;
-      margin-bottom: 0.3rem;
-      color: #6b4e9e;
+      transition: transform 0.3s ease;
     }
-    .gallery-description p {
-      color: #4a3a6e;
-      font-size: 0.9rem;
+    .gallery-item:hover img {
+      transform: scale(1.05);
     }
+    /* old description style removed – no longer used */
 
     /* ===== INTERESTS – bigger pictures, 4 items ===== */
     .interests-grid {
@@ -843,9 +837,7 @@
       <div class="skills-category"><h3><i class="fas fa-language"></i> Languages</h3><div class="skills-grid"><span class="skill-icon-item"><i class="fas fa-globe"></i> Arabic (native)</span><span class="skill-icon-item"><i class="fas fa-globe"></i> English (C1, TOEFL 99/120)</span><span class="skill-icon-item"><i class="fas fa-globe"></i> French (B2, DELF)</span><span class="skill-icon-item"><i class="fas fa-globe"></i> German (A1, Bremen Center)</span></div></div>
     </section>
 
-   
-
-    <!-- TRANSCRIPTS – 5 in one line, clickable -->
+    <!-- TRANSCRIPTS – 5 in one line, clickable (unchanged) -->
     <section id="transcripts">
       <h2 class="section-title"><i class="fas fa-scroll"></i> Academic performance</h2>
       <p class="transcript-intro">Consistently achieved Here are some of my transcripts </p>
@@ -878,18 +870,26 @@
       </div>
     </section>
 
-    <!-- GALLERY (unchanged) -->
+    <!-- ========= GALLERY SECTION – ADJUSTED: ONLY PHOTOS, NO TEXT, FITTED ========= -->
     <section id="gallery">
       <h2 class="section-title"><i class="fas fa-camera"></i> Gallery</h2>
       <div class="gallery-grid">
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>FIRST Championship 2025</strong><p>Houston team photo – insert description later</p></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>NASA Space Apps</strong><p>UM6P Bengrir – insert description later</p></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>Robot Design Award</strong><p>VEXIQ competition – insert description later</p></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>Mindcraft Summer Camp</strong><p>Mentoring kids – insert description later</p></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>FLL Peer Award</strong><p>Houston ceremony – insert description later</p></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>Robotics workshop</strong><p>With MINDCRAFT – insert description later</p></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>Baking creations</strong><p>Chocolate lava cake – insert description later</p></div></div>
-        <div class="gallery-item"><div class="gallery-placeholder"><i class="fas fa-image"></i></div><div class="gallery-description"><strong>Guitar session</strong><p>Acoustic covers – insert description later</p></div></div>
+        <!-- All images from original, cleaned up, descriptions removed, each in a square fitted container -->
+        <div class="gallery-item"><div class="gallery-image"><img src="pics/FLLmetalking.jpeg" alt="FLL team"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/GOATEDPIC3.PNG" alt="event"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="pics/AARONSPYERNASA.PNG" alt="NASA Space Apps"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="pics/GOATEDPICFIRST2.PNG" alt="FIRST event"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="pics/VEXIQTEAMM.PNG" alt="VEX IQ"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="pics/ASTRONAUT.PNG" alt="astronaut encounter"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="pics/GOATEDPICTURE.PNG" alt="group photo"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="pics/FLLQUALI .PNG" alt="FLL qualifiers"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/AWARDNATIONAL.PNG" alt="award ceremony"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/FRC.PNG" alt="FRC"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/ELECTRONICS.PNG" alt="electronics workshop"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/FIRSTPICTURE.PNG" alt="FIRST championship"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/GOAAAAAAATEDPIC4.PNG" alt="group"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/CAD.PNG" alt="CAD design"></div></div>
+        <div class="gallery-item"><div class="gallery-image"><img src="PICS/GOATEDPIC FIRST.PNG" alt="robotics"></div></div>
       </div>
     </section>
 
@@ -914,11 +914,10 @@
           <h4>Coding</h4>
         </div>
       </div>
-      <p style="margin-top:2rem; color:#6b4e9e;">Clubs: MINDCRAFT (robotics member 2023–25), Theater & Cinema (2018–20), ActiveLabs robotics (2016–19).</p>
     </section>
 
     <footer>
-      <p>© 2026 Salma Hamraoui · all achievements documented · placeholders for certificates, transcripts & gallery</p>
+      <p>© 2026 Salma Hamraoui ·  </p>
     </footer>
   </div>
 
@@ -1043,3 +1042,4 @@
   </script>
 </body>
 </html>
+```
